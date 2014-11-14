@@ -7,8 +7,11 @@ This small gem allows you to stem Arabic words i.e. to remove the common suffixe
 It is a lightweight stemmer.
 
 Examples
+<br />
 المعلمون => معلم
+<br />
 المدرسة => مدرسة
+<br />
 الأجهزة => اجهزة
 
 Installation
@@ -29,7 +32,7 @@ Or install it yourself as:
 Usage
 =====
 
-word = "المعلومن"
+word = "المعلمون"
 result = ArabicStemmer.to_arabic_stem(word)
 
 Contributing
