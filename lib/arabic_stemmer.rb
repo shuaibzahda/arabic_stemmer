@@ -18,17 +18,17 @@ module ArabicStemmer
     return word if key_words.include? word or is_word_short(word)
 
     # 5. remove prefixes
-    word = remove_suffix(word)
+    word = remove_prefix(word)
 
     return word if is_word_short(word)
     
     # 6. remove suffixes
-    word = remove_prefix(word)
+    word = remove_suffix(word)
     
     return word
   end
   
-   def self.remove_suffix(word)
+  def self.remove_suffix(word)
     # Remove ات ان ون كم ين هم هن
     suffixes = ["هم", "ين", "ون", "ان", "كم", "ات", "هن"]
     letters = word[-2, 2]
@@ -43,13 +43,13 @@ module ArabicStemmer
     letters = word[0..1]
     return word[2..-1] if prefix_2.include? letters
 
-    prefix_3 = ["وال", "كال"]
+    prefix_3 = ["وال", "كال", "بال"]
     letters = word[0..2]
     return word[3..-1] if prefix_3.include? letters
     return word
   end
 
   def self.is_word_short(word)
-    return word.size <= 3
+    return word.size <= 4
   end
 end

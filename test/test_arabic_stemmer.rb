@@ -20,7 +20,7 @@ class ArabicStemmerTest < Test::Unit::TestCase
 
   def test_convert_alif
     assert_equal "الف", ArabicStemmer.to_arabic_stem("ألف")
-#    assert_equal "اذان", "آذان"
+    assert_equal "حاكم", ArabicStemmer.to_arabic_stem("حاكم")
     assert_equal "اسلام", ArabicStemmer.to_arabic_stem("إسلام")
   end
 
@@ -43,7 +43,8 @@ class ArabicStemmerTest < Test::Unit::TestCase
   end
 
   def test_remove_prefixes
-    assert_equal "رب", ArabicStemmer.to_arabic_stem("الرب")
+    assert_equal "بيت", ArabicStemmer.to_arabic_stem("البيت")
+    assert_equal "الرب", ArabicStemmer.to_arabic_stem("الرب")
     assert_equal "اسلام", ArabicStemmer.to_arabic_stem("الإسلام")
     assert_equal "طلبة", ArabicStemmer.to_arabic_stem("الطلبة")
     assert_equal "ضرب", ArabicStemmer.to_arabic_stem("الضرب")
@@ -53,6 +54,7 @@ class ArabicStemmerTest < Test::Unit::TestCase
     assert_equal "قول", ArabicStemmer.to_arabic_stem("ستقول")
     assert_equal "برمج", ArabicStemmer.to_arabic_stem("سيبرمج")
     assert_equal "برمجة", ArabicStemmer.to_arabic_stem("للبرمجة")
+    assert_equal "سيارة", ArabicStemmer.to_arabic_stem("بالسيارة")
   end
 
   def test_stem_words
