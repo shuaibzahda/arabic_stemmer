@@ -1,8 +1,9 @@
 require "arabic_stemmer/version"
+#require "arabic_stemmer/arabic_keywords"
 
 module ArabicStemmer
   def self.to_arabic_stem(word)
-    key_words = ["الله"]
+    key_words = ArabicStemmer::NEWS_KEYWORDS
 
     # 1. Remove non alpha numeric characters.
     word = word.strip.gsub(/[._,،\"\':;&?؟()]/, '')
@@ -20,7 +21,7 @@ module ArabicStemmer
     # 5. remove prefixes
     word = remove_prefix(word)
 
-    return word if is_word_short(word)
+    return word if key_words.include? word or is_word_short(word)
     
     # 6. remove suffixes
     word = remove_suffix(word)
