@@ -8,8 +8,8 @@ module ArabicStemmer
     # 1. Remove non alpha numeric characters.
     word = word.strip.gsub(/[._,،\"\':;&?؟()]/, '')
 
-    # 2. Remove diacratical marks ً َ ُ ٌ ٍ ِ ْ ّ
-     word = word.gsub(/[\u064b\u064c\u064d\u064e\u064f\u0650\u0651\u0652]/, '')
+    # 2. Remove diacratical marks ً َ ُ ٌ ٍ ِ ْ ّ or ـ letter extender
+     word = word.gsub(/[\u064b\u064c\u064d\u064e\u064f\u0650\u0651\u0652\u0640]/, '')
     # word = word.gsub(/[\uFE77]/, '')
 
     # 3. Convert أآإ to ا
