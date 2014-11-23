@@ -16,6 +16,7 @@ class ArabicStemmerTest < Test::Unit::TestCase
 
   def test_remove_diacratics
     assert_equal "ب", ArabicStemmer.to_arabic_stem("بَ")
+    assert_equal "باب", ArabicStemmer.to_arabic_stem("بــابٌ")
   end
 
   def test_convert_alif
